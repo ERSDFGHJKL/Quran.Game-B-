@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Qur'an Quest</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fefbe9;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      display: inline-block;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      width: 200px;
+      height: 100px;
+      margin: 10px;
+      padding: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px #aaa;
+      transition: all 0.3s ease;
+    }
+    .card.correct {
+      background-color: #d4edda;
+      border-color: green;
+    }
+    .card.wrong {
+      background-color: #f8d7da;
+      border-color: red;
+    }
+    h1 {
+      color: #117864;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🕌 Qur'an Quest: Match the Surah! 🕌</h1>
+<p>Click the correct meaning for <strong>Al-Fil</strong> 🐘</p>
+
+<div id="cards">
+  <div class="card" onclick="checkAnswer(this, false)">The Star</div>
+  <div class="card" onclick="checkAnswer(this, false)">The Light</div>
+  <div class="card" onclick="checkAnswer(this, true)">The Elephant</div>
+  <div class="card" onclick="checkAnswer(this, false)">The Cave</div>
+</div>
+
+<script>
+  function checkAnswer(element, isCorrect) {
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.classList.remove('wrong', 'correct'));
+
+    if (isCorrect) {
+      element.classList.add('correct');
+      alert("🎉 Correct! Well done!");
+    } else {
+      element.classList.add('wrong');
+      setTimeout(() => {
+        element.classList.remove('wrong');
+      }, 1000);
+    }
+  }
+</script>
+
+</body>
+</html>
